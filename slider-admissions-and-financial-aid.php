@@ -1,0 +1,1 @@
+<div>	<div class="carousel-inner">		<div class="flexslider">			<ul class="slides">				<li>					<img src="images/slide-admissions-and-financial-aid.jpg" alt="slider" />					<div class="flex-anchor desktop">						<a class="anchor" ></a>					</div>				</li>			</ul>		</div>	</div></div>

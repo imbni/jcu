@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* ---------------------------------------------------------------------- */
+/* "Polyglot" Language Switcher
+/* ----------------------------------------------------------------------
+Version: 1.4
+Author: Ixtendo
+Author URI: http://www.ixtendo.com
+License: MIT License
+License URI: http://www.opensource.org/licenses/mit-license.php
+------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------- */
+/* TABLE OF CONTENTS
+/* ----------------------------------------------------------------------
+-Generic
+-JS-created Code
+------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------- */
+/* Generic
+/* ---------------------------------------------------------------------- */
+#polyglotLanguageSwitcher, #polyglotLanguageSwitcher * {
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+}
+
+#polyglotLanguageSwitcher ul {
+	list-style: none;	
+}
+
+#polyglotLanguageSwitcher {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #444;
+	line-height: normal;
+	position: relative; /* sets the initial position for the drop-down menu */	
+	z-index: 1000;
+        margin-top: 5px;
+        text-align: center;
+}
+
+#polyglotLanguageSwitcher form {
+	display: none;	
+}
+
+/* ---------------------------------------------------------------------- */
+/* JS-created Code
+/* ---------------------------------------------------------------------- */
+#polyglotLanguageSwitcher a {
+	text-decoration: none;
+	display: block;
+	padding: 6px 0; /* 6px 6px 6px 28px */
+	color: #7ea6a6;
+	width: 6em; /* 84px; total width: 120px */
+	background-repeat: no-repeat;
+	background-position: 6px center;
+	background-color: #003E78;
+}
+
+#polyglotLanguageSwitcher a:hover {
+	color: #ffcb0b;	
+}
+
+#polyglotLanguageSwitcher a.current:link, #polyglotLanguageSwitcher a.current:visited, #polyglotLanguageSwitcher a.current:active {
+	position: relative;/* sets the initial position for the trigger arrow */
+	border: 0;
+	text-align: right;
+	padding-right: 10px;
+	background-image: url(../images/globe.png);
+	/*	border-radius: 3px;*/
+	/*	height: 1.25em;  15px */
+}
+
+#polyglotLanguageSwitcher a.current:hover, 
+#polyglotLanguageSwitcher ul.dropdown li:hover {
+/*	background-color: #F7F7F7;*/
+}
+
+#polyglotLanguageSwitcher a.active { /* This style is applied as long as the drop-down menu is visible. */
+	border-bottom: none !important;
+	border-radius: 3px 3px 0 0 !important;
+       
+}
+
+#polyglotLanguageSwitcher span.trigger {
+	display: block;
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	text-indent: -10000em;
+	top: 0.5em; /* 6px */
+	right: 6px;
+}
+
+#polyglotLanguageSwitcher a.current:link span.trigger, #polyglotLanguageSwitcher a.current:visited span.trigger {
+/*	background: url(../images/arrow-down.gif) no-repeat left top;	*/
+}
+
+#polyglotLanguageSwitcher a.current:hover span.trigger, #polyglotLanguageSwitcher a.current:active span.trigger, #polyglotLanguageSwitcher a.active span.trigger {
+	background-position: left bottom !important;
+}
+
+/* Drop-Down Menu */
+
+#polyglotLanguageSwitcher ul.dropdown {
+	display: none;
+	position: absolute;
+	top: 2.333em; /* 28px */
+	left: -3px;
+	background-color: #003e78;
+}
+
+#polyglotLanguageSwitcher ul.dropdown li { 
+	border-top: 0;
+}
+
+#polyglotLanguageSwitcher ul.dropdown li:last-child { 
+	border-radius: 0 0 3px 3px;
+}
+.trigger{
+    display: none !important;
+}
+
+/* Flags */
+
+/*#en { 
+	background-image: url(../images/flags/gb.png);
+}
+
+#fr { 
+	background-image: url(../images/flags/fr.png);	
+}
+
+#de { 
+	background-image: url(../images/flags/de.png);	
+}
+
+#it { 
+	background-image: url(../images/flags/it.png);	
+}
+
+#es { 
+	background-image: url(../images/flags/es.png);	
+}*/
