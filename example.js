@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true,args: ['--window-size=1920,1080'],
+  const browser = await puppeteer.launch({ headless: true,args: ['--window-size=1920,1080','--no-sandbox'],
   defaultViewport: null });
   const page = await browser.newPage();
   //await page.goto('https://www.melanielyne.com/');
