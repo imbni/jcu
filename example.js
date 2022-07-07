@@ -4,8 +4,8 @@ console.log('test puppeteer');
   const browser = await puppeteer.launch({ headless: true,args: ['--window-size=1920,1080','--no-sandbox','--disable-setuid-sandbox'],
   defaultViewport: null });
   const page = await browser.newPage();
-  //await page.goto('https://www.melanielyne.com/');
-  await page.goto('https://storefront:laura123@dwstaging.melanielyne.com/?__siteDate=202207022320');
+  await page.goto('https://www.melanielyne.com/');
+  //await page.goto('https://storefront:laura123@dwstaging.melanielyne.com/?__siteDate=202207022320');
   
   //dropdowns
   await page.hover('#navigation > ul > li:nth-child(1) > a');
