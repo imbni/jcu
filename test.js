@@ -1,4 +1,4 @@
-console.log(process.env.MAILGUN_API_KEY);
+console.log(process.env);
 /*
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
