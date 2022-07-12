@@ -1,4 +1,5 @@
 console.log(process.env.MAILGUN_API_KEY);
+/*
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 const mailgun = new Mailgun(formData);
@@ -22,3 +23,4 @@ mg.messages.create(domain, {
 })
   .then((msg) => console.log(msg))
   .catch((err) => console.log(err));
+  */
