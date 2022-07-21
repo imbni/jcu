@@ -11,7 +11,6 @@
     "test": "node test-express.js"
   },
   "dependencies": {
-    "ejs": "^3.1.5",
     "cypress": "^10.3.0",
     "form-data": "^4.0.0",
     "mailgun.js": "^7.0.4",
