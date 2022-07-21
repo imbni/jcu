@@ -33,7 +33,7 @@ express()
     })
       .then((msg) => console.log(msg))
       .catch((err) => console.log(err));
-    res.send(msg)
+    res.send('done')
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
