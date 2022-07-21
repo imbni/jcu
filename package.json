@@ -1,14 +1,35 @@
 {
   "name": "ml-qa",
-  "description": "a really cool app ",
-  "version": "1.0.0",
+  "version": "0.3.0",
+  "description": "A sample Node.js app using Express 4",
   "engines": {
     "node": "16.x"
   },
+  "main": "index.js",
+  "scripts": {
+    "start": "node test-express.js",
+    "test": "node test-express.js"
+  },
   "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.15.2",
     "cypress": "^10.3.0",
     "form-data": "^4.0.0",
     "mailgun.js": "^7.0.4",
     "puppeteer": "^14.3.0"
-  }
+  },
+  "devDependencies": {
+    "got": "^11.3.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imbni/jcu"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }

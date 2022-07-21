@@ -1,0 +1,14 @@
+{
+  "name": "ml-qa",
+  "description": "a really cool app ",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "cypress": "^10.3.0",
+    "form-data": "^4.0.0",
+    "mailgun.js": "^7.0.4",
+    "puppeteer": "^14.3.0"
+  }
+}
