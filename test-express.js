@@ -20,6 +20,10 @@ const toEmails = ['mbnism@gmail.com'];
 const rackspaceLogo1 = fs.createReadStream(`${__dirname}/en/pdp-added.png`);
 const rackspaceLogo2 = fs.createReadStream(`${__dirname}/en/dropdown-new.png`);
 
+const ads = [
+  {title: 'Hello, world (again)!'}
+];
+
 express()
   .use(helmet())
   .use(bodyParser.json())
@@ -45,7 +49,7 @@ express()
   })
   .get('/api', (req, res) => {
     setTimeout(function () {
-      console.log('This printed after about 1 second');
+      console.log('This printed after about 3 second');
       res.send(ads);
     }, 3000);
 
