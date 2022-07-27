@@ -21,10 +21,10 @@ const rackspaceLogo1 = fs.createReadStream(`${__dirname}/en/pdp-added.png`);
 const rackspaceLogo2 = fs.createReadStream(`${__dirname}/en/dropdown-new.png`);
 
 express()
-  .use(use(helmet()))
-  .use(use(bodyParser.json()))
-  .use(use(cors()))
-  .use(use(morgan('combined')))
+  .use(helmet())
+  .use(bodyParser.json())
+  .use(cors())
+  .use(morgan('combined'))
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
