@@ -22,7 +22,9 @@ const ads = [
 ];
 
 express()
-  .use(helmet())
+  .use(helmet({
+    contentSecurityPolicy: false,
+  }))
   .use(bodyParser.json())
   .use(cors())
   .use(morgan('combined'))
