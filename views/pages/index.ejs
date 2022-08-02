@@ -15,12 +15,12 @@
     </a>
     <h1>Getting Started on Heroku with Node.js</h1>
 
-    <button class="my_link btn btn-lg btn-default" data-option-id="api">API</button>
-<br>
-<button class="my_link btn btn-lg btn-default" data-option-id="qa">QA</button>
-<br>
-<button class="my_link btn btn-lg btn-default" data-option-id="mail">REPORT</button>
 
+    <button class="my_link" data-option-id="api">API</button>
+    <br>
+    <button class="my_link" data-option-id="qa">QA</button>
+    <br>
+    <button class="my_link" data-option-id="mail">REPORT</button>
 
     <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
     <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
@@ -72,3 +72,45 @@
 
 </body>
 </html>
+<script>
+
+
+  $(".my_link").click(
+    function () {
+
+      $(this).text('loading');
+      apiUrl = $(this).data("option-id");
+      btt = $(this);
+      callML(apiUrl).then(function (data) {
+        console.log(data)
+        btt.text('done');
+      }).catch(function (err) {
+        console.log(err)
+      })
+
+    });
+
+
+  function callML(apiUrl) {
+    //apiUrl = 'http://localhost:3001/'+apiUrl;
+    apiUrl = 'https://ml-qa.herokuapp.com/'+apiUrl;
+    console.log(apiUrl);
+    return new Promise(function (resolve, reject) {
+      $.ajax({
+        url: apiUrl,
+        data: { id: 1000 },
+        success: function (data) {
+          resolve(data) // Resolve promise and go to then()
+        },
+        error: function (err) {
+          reject(err) // Reject the promise and go to catch()
+        }
+      });
+    });
+  }
+
+
+
+
+</script>
+
