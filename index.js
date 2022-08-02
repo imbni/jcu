@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const puppeteer = require('puppeteer');
 const fs = require('fs');
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
