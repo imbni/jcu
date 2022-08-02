@@ -31,18 +31,55 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/qa', (req, res) => {
-    mg.messages.create(domain, {
-      from: fromEmail,
-      to: toEmails,
-      subject: 'Hello :)',
-      html: '<img src="cid:en/minicart.png" width="200px"><br><h3>Testing some Mailgun awesomness!</h3>',
-      text: 'Testing some Mailgun awesomness!!!',
-      //inline: [mailgunLogo],
-      attachment: [rackspaceLogo1, rackspaceLogo2]
-    })
-      .then((msg) => console.log(msg))
-      .catch((err) => console.log(err));
-    res.send('done')
+    (async () => {
+      const browser = await puppeteer.launch({
+        headless: true, args: ['--window-size=1920,1080'],
+        defaultViewport: null
+      });
+      const page = await browser.newPage();
+      await page.goto('https://www.melanielyne.com/');
+      
+      //wait for popup
+      await page.waitForTimeout(20000);
+      await page.screenshot({ path: 'en/popup.png' });
+    
+      await page.goto('https://www.melanielyne.com/en/new-arrivals/');
+      await page.screenshot({ path: 'en/new-arrivals.png' });
+    
+    
+      //dropdowns
+      await page.hover('#navigation > ul > li:nth-child(1) > a');
+      await page.screenshot({ path: 'en/dropdown-new.png' });
+      await page.hover('#navigation > ul > li:nth-child(2) > a');
+      await page.screenshot({ path: 'en/dropdown-clothing.png' });
+    
+      await page.waitForTimeout(10000);
+      //pdp  
+      await page.goto('https://www.melanielyne.com/en/clothing/jumpsuits/off-the-shoulder-jumpsuit/6010101-1698.html?dwvar_6010101-1698_color=010&dwvar_6010101-1698_size=M&start=1&ccgid=melanie-lyne-clothing#start=1');
+      const button = await page.$('button.addToBagButton');
+      await button.evaluate(b => b.click());
+      await page.screenshot({ path: 'en/pdp-added.png' });
+    
+      //plp
+      await Promise.all([
+        page.click('#navigation > ul > li:nth-child(1) > a'),
+        page.waitForNavigation()
+      ]);
+      await page.screenshot({ path: 'en/new.png' });
+    
+      //leftnav
+      await page.evaluate(() => {
+        document.querySelector('.leftnav-promo__container').scrollIntoView();
+      });
+      await page.screenshot({ path: 'en/left-nav.png' });
+    
+    
+      //minicart
+      await page.hover('.minicart-quantity');
+      await page.screenshot({ path: 'en/minicart.png' });
+    
+      await browser.close();
+    })();
   })
   .get('/api', (req, res) => {
     setTimeout(function () {
