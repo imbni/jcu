@@ -15,7 +15,7 @@ console.log('test puppeteer');
 
 //pdp  
 await page.goto('https://www.melanielyne.com/en/clothing/jumpsuits/off-the-shoulder-jumpsuit/6010101-1698.html?dwvar_6010101-1698_color=010&dwvar_6010101-1698_size=M&start=1&ccgid=melanie-lyne-clothing#start=1');
-const button = await page.$('button.addToBagButton');
+const button = await page.$('button.addToBagButton'); 
   await button.evaluate(b => b.click());
 await page.screenshot({ path: 'en/pdp-added.png' });
 
