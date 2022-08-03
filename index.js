@@ -35,9 +35,9 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/qa', (req, res) => {
     (async () => {
-      res.send(ads);
+      //res.send(ads);
       const browser = await puppeteer.launch({
-        headless: true, args: ['--window-size=1920,1080'],
+        headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox','--window-size=1920,1080'],
         defaultViewport: null
       });
       const page = await browser.newPage();
@@ -47,8 +47,8 @@ express()
       //await page.waitForTimeout(20000);
       await page.screenshot({ path: 'en/popup.png' });
     
-      await page.goto('https://www.melanielyne.com/en/new-arrivals/');
-      await page.screenshot({ path: 'en/new-arrivals.png' });
+      await page.goto('https://www.melanielyne.com/en/featured-shops/');
+      await page.screenshot({ path: 'en/featured-shops.png' });
     
     
       // //dropdowns
