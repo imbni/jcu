@@ -35,6 +35,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/qa', (req, res) => {
     (async () => {
+      res.send(ads);
       const browser = await puppeteer.launch({
         headless: true, args: ['--window-size=1920,1080'],
         defaultViewport: null
