@@ -28,7 +28,7 @@ express()
   }))
   .use(bodyParser.json())
   .use(cors())
-  .options('*', cors())
+  //.options('*', cors())
   .use(morgan('combined'))
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -45,7 +45,7 @@ express()
       await page.goto('https://www.melanielyne.com/');
       
       //wait for popup
-      await page.waitForTimeout(20000);
+      //await page.waitForTimeout(20000);
       await page.screenshot({ path: 'en/popup.png' });
     
       await page.goto('https://www.melanielyne.com/en/featured-shops/');
