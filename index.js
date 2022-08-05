@@ -46,27 +46,29 @@ express()
 
       //wait for popup
       await page.waitForSelector('.ui-dialog[aria-describedby=popup-subscription-modal]')
-      console.log('got it')
+      console.log('STEP 1 popup found')
       await page.screenshot({ path: 'en/popup-new.png' });
       //await page.waitForTimeout(15000);
       //await page.screenshot({ path: 'en/popup.png' });
 
       await page.goto('https://www.melanielyne.com/en/featured-shops/');
       await page.screenshot({ path: 'en/featured-shops.png' });
-
+      console.log('STEP 2 featured-shops')
 
       //dropdowns
       await page.hover('#navigation > ul > li:nth-child(1) > a');
       await page.screenshot({ path: 'en/dropdown-new.png' });
       await page.hover('#navigation > ul > li:nth-child(2) > a');
       await page.screenshot({ path: 'en/dropdown-clothing.png' });
+      console.log('STEP 3 dropdowns')
 
-      await page.waitForTimeout(10000);
+      //await page.waitForTimeout(10000);
       //pdp  
       await page.goto('https://www.melanielyne.com/en/clothing/jumpsuits/off-the-shoulder-jumpsuit/6010101-1698.html?dwvar_6010101-1698_color=010&dwvar_6010101-1698_size=M&start=1&ccgid=melanie-lyne-clothing#start=1');
       const button = await page.$('button.addToBagButton');
       await button.evaluate(b => b.click());
       await page.screenshot({ path: 'en/pdp-added.png' });
+      console.log('STEP 4 pdp')
 
       //plp
       await Promise.all([
@@ -74,17 +76,19 @@ express()
         page.waitForNavigation()
       ]);
       await page.screenshot({ path: 'en/new.png' });
+      console.log('STEP 5 plp')
 
       //leftnav
       await page.evaluate(() => {
         document.querySelector('.leftnav-promo__container').scrollIntoView();
       });
       await page.screenshot({ path: 'en/left-nav.png' });
-
+      console.log('STEP 6 leftnav')
 
       //minicart
       await page.hover('.minicart-quantity');
       await page.screenshot({ path: 'en/minicart.png' });
+      console.log('STEP 7 minicart')
 
       await browser.close();
       res.send(ads);
