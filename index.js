@@ -45,7 +45,7 @@ express()
       await page.goto('https://www.melanielyne.com/');
       
       //wait for popup
-      //await page.waitForTimeout(20000);
+      await page.waitForTimeout(15000);
       await page.screenshot({ path: 'en/popup.png' });
     
       await page.goto('https://www.melanielyne.com/en/featured-shops/');
