@@ -71,12 +71,12 @@ express()
       console.log('STEP 4 pdp')
 
       //plp
-      await Promise.all([
-        page.click('#navigation > ul > li:nth-child(1) > a'),
-        page.waitForNavigation()
-      ]);
-      await page.screenshot({ path: 'en/new.png' });
-      console.log('STEP 5 plp')
+      // await Promise.all([
+      //   page.click('#navigation > ul > li:nth-child(1) > a'),
+      //   page.waitForNavigation()
+      // ]);
+      // await page.screenshot({ path: 'en/new.png' });
+      console.log('STEP 5 plp skip')
 
       //leftnav
       await page.evaluate(() => {
