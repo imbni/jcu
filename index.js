@@ -15,8 +15,8 @@ const fromEmail = 'Excited User <mbnism@gmail.com>';
 const toEmails = ['mbnism@gmail.com'];
 const PORT = process.env.PORT || 5000
 
-const rackspaceLogo1 = fs.createReadStream(`${__dirname}/en/pdp-added.png`);
-const rackspaceLogo2 = fs.createReadStream(`${__dirname}/en/dropdown-new.png`);
+//const rackspaceLogo1 = fs.createReadStream(`${__dirname}/en/pdp-added.png`);
+//const rackspaceLogo2 = fs.createReadStream(`${__dirname}/en/dropdown-new.png`);
 
 const ads = [
   { title: 'Hello, world (again)!' }
@@ -74,9 +74,11 @@ express()
       // await Promise.all([
       //   page.click('#navigation > ul > li:nth-child(1) > a'),
       //   page.waitForNavigation()
+
       // ]);
-      // await page.screenshot({ path: 'en/new.png' });
-      console.log('STEP 5 plp skip')
+      await page.goto('https://www.melanielyne.com/en/new-arrivals/');
+      await page.screenshot({ path: 'en/new-arrivals.png' });
+      console.log('STEP 5 plp')
 
       //leftnav
       await page.evaluate(() => {
