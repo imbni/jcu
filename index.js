@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const { readdirSync, rmSync } = require('fs');
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 const mailgun = new Mailgun(formData);
@@ -125,6 +126,13 @@ express()
     })();
 
 
+  })
+  .get('/clean', (req, res) => {
+    (async () => {
+      const dir = './en';
+      readdirSync(dir).forEach(f => rmSync(`${dir}/${f}`));
+      res.send('done')
+    })();
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
