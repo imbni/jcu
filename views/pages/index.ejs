@@ -19,6 +19,10 @@
     <button class="my_link btn btn-lg btn-default" data-option-id="mail">REPORT</button>
     <br>
     <button class="my_link btn btn-lg btn-default" data-option-id="clean">clean</button>
+    <br>
+    <button class="my_link btn btn-lg btn-default" data-option-id="buy">BUY</button>
+    <br>
+    <button class="my_link btn btn-lg btn-default" data-option-id="sell">SELL</button>
 
   </div>
 </div>
@@ -37,7 +41,7 @@
       btt = $(this);
       callML(apiUrl).then(function (data) {
         console.log(data)
-        btt.text('done');
+        btt.text(apiUrl);
       }).catch(function (err) {
         console.log(err)
       })
