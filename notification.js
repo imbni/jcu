@@ -1,6 +1,5 @@
 const fs = require('fs');
 const { IncomingWebhook } = require('@slack/webhook');
-const { getEthPriceNow, getEthPriceHistorical } = require('get-eth-price');
 const ethPrice = require('eth-price');
 
 
