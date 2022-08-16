@@ -205,3 +205,8 @@ function readFiles() {
     });
   });
 }
+
+function getEthPrice() {
+  eth = ethPrice('usd');
+  return eth;
+}
